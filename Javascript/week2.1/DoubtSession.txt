@@ -1,0 +1,32 @@
+//Is there any way to make setTimeout Synchronous.
+
+function setTimeoutSync(timeout){
+    let startTime= new Date();
+//here we makes thread busy which takes time to make setTimeout Synchronous
+    while(1){
+        let currentTime= new Date();
+        if(currentTime.getTime() - startTime.getTime() > timeout){
+            break;
+        }
+    }
+}
+setTimeoutSync(1000)
+
+console.log("hi there");
+
+// I understand what an async code is...but what makes fnc async.
+
+Anything that require browser Apis.or I/O intensive tasks.
+
+| What makes it async?                | Effect                                                        |
+| ----------------------------------- | ------------------------------------------------------------- |
+| `async` keyword before the function | Allows use of `await` inside and returns a `Promise`          |
+| `await` keyword inside function     | Only valid inside `async` functions (or modules in modern JS) |
+
+// What is event loop .
+
+Loop that runs whenever the callstack become empty.
+The goal of this is to push the function from callbackqueue to callstack when it's empty.   
+
+//what makes function asynchronous.
+thread did not stuck..it will keep onexecuting the other tasks.

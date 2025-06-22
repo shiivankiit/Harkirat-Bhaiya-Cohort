@@ -1,0 +1,18 @@
+Javascript Theory.
+
+Interpreted and complied are two type of languages.
+
+//user.name(user dot name) or user["name"](user of name);
+
+//Array of objects.
+
+let arr=["harkirat",21,{
+    name:"harkirat",
+    age:21,
+    cities:["delhi","chandigarh","bangalore",{
+        country:"malaysia",
+        city:"kuala lumpur"
+    }]
+}];
+
+console.log(arr[2].cities[3].city);
