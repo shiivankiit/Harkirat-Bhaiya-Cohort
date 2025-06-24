@@ -1,0 +1,9 @@
+body{
+    background-color: aqua;
+    color: red;
+    font-size: 28px;
+}
+
+/* When parent div get display flex then
+then child is set next to each other..*/
+

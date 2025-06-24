@@ -33,7 +33,7 @@ console.log("---------end of the file------------");
 function doasyncop(resolve){//inside this we wrap the async op.resolve is same as callback.
     setTimeout(resolve,3000);
 }
-const f= new Promise(doasyncop);//creating a promise.
+const f= new  Promise(doasyncop);//creating a promise.
 //here promise is a class and we call it's constructor using new.
 
 function callback(){
@@ -44,7 +44,7 @@ f.then(callback);//using the promise
 
 //so in nutshell,Promise will pass the proxy to f
 //by calling the function passed to promise and then that function
-//will do real async work and then when the result is recived,
+//will do real async work and  when the result is recived,
 //we have to call the first argument of doasyncop with that result.
       //or
 // When you create a new Promise, it immediately calls the function you pass to it (i.e., doasyncop).
@@ -53,5 +53,6 @@ f.then(callback);//using the promise
 // When your async work is done (after 3 seconds), you call 'resolve()'.
 // This tells the Promise: "I’m done, you can move on."
 // Once the Promise is resolved, the function passed to '.then()' (callback) is executed.
+
 
 

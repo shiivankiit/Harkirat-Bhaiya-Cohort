@@ -16,12 +16,13 @@ setTimeout(name,3000); // setTimeout promise you to return something after 3 sec
 // asynchronous operation and its resulting value.
 
 
-function main()
+function main()//calling the main function is eventual completion of settimeout asynchronous operation.
 {
-
+ console.log("Task done");
+ 
 }
 setTimeout(main,3000);//eventual after 3-sec it's called.
-//calling the main function is eventual completion of settimeout asynchronous operation.
+
 
 //Promisified version===> setTimeoutPromisifed(3000).then(callback);
 //callback version ===>  setTimeout(callback,3000);
