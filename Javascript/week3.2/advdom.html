@@ -1,0 +1,50 @@
+
+<!-- <html>
+    <body>
+        <h4>Todo-App</h4>
+        <input type="text" placeholder="Add todo"><button onClick="addTodo()">Add todo</button>
+    
+    </body>
+    <script>
+        function addTodo(){
+            const value=document.querySelector("input").value;
+            const spanEl=document.createElement("span");
+            const buttonEl=document.createElement("button");
+            spanEl.innerHTML=value;
+            buttonEl.innerHTML="Delete";
+            ///
+            const divel=document.createElement("div");
+            divel.appendChild(spanEl);
+            divel.appendChild(buttonEl);
+
+            document.querySelector("body").appendChild(divel);
+
+        }
+    </script>
+</html> -->
+
+
+<!-- State nd components -->
+
+<body>
+  <input type="text"></input>
+  <button onclick="addTodo()">Add todo!</button>
+  <script>
+    let todos = [];
+    function addTodo() {
+      todos.push({
+        title: document.querySelector("input").value
+      })
+      render();
+    }
+
+    function deleteTodo() {
+      
+      render();
+    }
+ 
+    function render() {
+      
+    }
+  </script>
+</body>
