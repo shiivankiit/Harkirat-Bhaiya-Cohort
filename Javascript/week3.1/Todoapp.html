@@ -1,0 +1,22 @@
+<!-- We are going to create a todo application..
+ Requirments:Add task functionality
+            :Delete task functionality
+  -->
+<html>
+    <body>
+        <h4>Todo App</h4>
+        <input type="text" placeholder="Add task">
+        <button onclick="addTodo()">Add todo</button>
+    </body>
+    <script>
+        function addTodo(){
+            const acess=document.querySelector("input")
+            const value = acess.value;
+
+            const newdv = document.createElement("div");
+            newdv.innerHTML="<div>"+value+"<div> <button> Delete <button>"
+            document.querySelector("body").appendChild(newdv);
+
+        }
+    </script>
+</html>

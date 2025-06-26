@@ -1,0 +1,34 @@
+<!-- programming interface for web document.
+html content converted to a tree like structure.
+allowing the js script to manipulate the content and structure dynamically. -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title>replit</title>
+	  <link href="style.css" rel="stylesheet" type="text/css" />
+	</head>
+	
+	<body>
+	  <h1>Todo list</h1>
+	  <h4>1. Take class</h4>
+	  <h4>2. Go out to eat</h4>
+	  <div>
+	    <input type="text" placeholder="Add your todo here"></input>
+	    <button onclick="addTodo()">Add Todo</button>
+	  </div>
+	  <script>
+		//this function will fetch the text present inside input tag.
+		function addTodo(){
+			const inputelem= document.querySelector("input");
+			const value= inputelem.value;
+			console.log(value);
+		}
+	  </script>
+	</body>
+</html>
+<!-- Document object refer to whole page -->
+ <!-- For fetching the element we use queryselector and all-->
+<!-- In this section we learnde about fetching the elem -->
