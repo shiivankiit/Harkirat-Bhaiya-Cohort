@@ -25,26 +25,69 @@
 
 
 <!-- State nd components -->
+ <!--
+   State :: refer to data that our application uses.
+   Components :: are a function or a piece of code that takes your state and return dom elements.
+   it takes your state and work with it.
+ -->
+   <!-- 
+         What does state derived frontend means.
+         We have to create the state varible and update the state variable and the frontend will be derived from it.
+  -->
 
 <body>
   <input type="text"></input>
   <button onclick="addTodo()">Add todo!</button>
+  <button onClick="deleteLastTodo()">Delete last todo</button>
+  <button onclick="deleteFirstTodo()">Delete first todo</button>
+  <!-- putting all the todo inside this div -->
+  <div id="todos"></div>
   <script>
-    let todos = [];
-    function addTodo() {
+    //Basially you just need to upadte the state or variable changes will displayed with the help of framework.
+    //just update the todos array i will put the changes on the dom.
+    let todos = [];//store all the todos and act like a state in react.
+
+
+    //updating the state variable. 
+    function addTodo(){
       todos.push({
-        title: document.querySelector("input").value
+        title:document.querySelector("input").value
       })
-      render();
+      render() //updates the ui at every time.
+    }
+    function deleteLastTodo(){
+      todos.splice(todos.length-1,1)//removes the last elem from arr.
+      render()
+    }
+    
+    function deleteFirstTodo(){
+      todos.splice(0,1)//removes the first elem from the arr.
+      render()
     }
 
-    function deleteTodo() {
-      
-      render();
+    function createTodoComponent(todo){
+       const  div = document.createElement("div");
+           const h4=document.createElement("h4");
+           const btn = document.createElement("button");
+           h4.innerHTML=todo.title;
+           btn.innerHTML="Delete";
+           div.append(h4);
+           div.append(btn);
+           return div;
     }
- 
+    //react
     function render() {
-      
+      document.querySelector("#todos").innerHTML="";//clear all current todos from the UI.(innerHTML="");
+      //we use for loop for every element in the array.
+      for(let i=0; i<todos.length; i++){ 
+           const element = createTodoComponent(todos[i]);
+           //we are creating a div to place content inside them
+           document.querySelector("#todos").appendChild(element);
     }
+    }
+    //For each item:
+    //Calls createTodoComponent() to make a DOM element.
+    //Appends it to the #todos container.
   </script>
 </body>
+<!-- 1.04.58 -->
