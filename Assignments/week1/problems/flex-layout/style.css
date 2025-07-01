@@ -1,0 +1,20 @@
+#container{
+    display: flex;
+    width: 1200px;    
+    margin: 0 auto; 
+}
+#left{
+  flex-grow: 1;
+  background-color: red;
+  
+}
+#Right{
+    flex-grow: 2;
+    background-color: blue;
+    
+}
+/* fr refer to fractional unit
+   place-self--centers only the specified grid items. 
+   margin:0 auto--0 is for top and bottom and auto is for left and right.
+   center the horizontally.
+ */

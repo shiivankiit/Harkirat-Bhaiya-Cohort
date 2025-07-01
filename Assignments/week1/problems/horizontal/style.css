@@ -1,0 +1,8 @@
+#layout{
+    height:500px;
+    width: 1200px;
+    background-color:skyblue;
+    display: grid;
+    place-self: center;
+
+}
