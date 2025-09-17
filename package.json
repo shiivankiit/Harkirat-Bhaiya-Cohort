@@ -1,0 +1,24 @@
+{
+  "name": "hartkirat-bhaiya-cohort",
+  "version": "1.0.0",
+  "description": "Welcome to my first step in the journey of becoming a Web Developer through Harkirat Singh's 100xDevs Cohort.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiivankiit/Harkirat-Bhaiya-Cohort.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shiivankiit/Harkirat-Bhaiya-Cohort/issues"
+  },
+  "homepage": "https://github.com/shiivankiit/Harkirat-Bhaiya-Cohort#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
