@@ -1,0 +1,21 @@
+<head>
+
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+<script>
+    function sendRequest(){
+        const a = document.getElementById("a").value;
+        const b = document.getElementById("b").value;
+        axios.post("https://localhost:3000/sum",{
+             a:a,
+             b:b
+        })
+    }
+</script>
+<body>
+    <input id ="a" type="text" placeholder="First value">
+    <input id="b"  type="text" placeholder="Second value">
+
+    <button onclick="sendRequest()">Find sum</button>
+</body>
+<!-- To served all this file to backend using http we use cors -->
