@@ -43,9 +43,10 @@
    
 // })
 
-// //Authentication logic.
-// //It also passes the data to next function.
-// //When middleware gets share it can also share their req,res data to.
+ //Authentication logic.
+//It also passes the data to next function.
+//When middleware gets share it can also share their req,res data to.
+
 // function auth (req,res,next){
 //     const token = req.headers.token;
 //     const decodedata = jwt.verify(token,JWT_SECRET);
@@ -58,15 +59,15 @@
 //         })
 //     }
 // }
-// //This code finding the user and return back their pswd
-// //Here we are also passing the data from middleware to /me whihc is username.
+//This code finding the user and return back their pswd
+//Here we are also passing the data from middleware to /me whihc is username.
 // app.get("/me",function(req,res){
    
 //         let foundUser=null;
         
 //         for(let i=0;i<users.length;i++){
 //             if(users[i].username===req.username){//Here we are finding who has sent a request.
-//                 //req.username comes from the auth function.
+                //req.username comes from the auth function.
 //                 foundUser=users[i]
 //             }
 //         }

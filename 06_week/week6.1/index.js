@@ -66,8 +66,8 @@ app.post("/signin",function(req,res){
 })
 app.get("/me",function(req,res){
     const token = req.headers.token;
-    const decodeInformation=jwt.verify(token,JWT_SECRET);
-    const username=decodeInformation.username;  
+    const decodeInformation=jwt.verify(token,JWT_SECRET);//checks if the toekn is valid using JWT_SECRET.
+    const username=decodeInformation.username;  //Here we pull out the username from JWT when it verifies.
     let founduser=null;
 
     for(let i=0;i<users.length;i++){
