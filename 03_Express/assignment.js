@@ -19,7 +19,7 @@ app.get("/", function (req, res) {
     const numberOfKidneys = johnKidneys.length; //it counts how many kidney john has.
 
     // Count healthy kidneys properly
-    let numberOfHealthyKidneys = 0;
+    let numberOfHealthyKidneys = 0;// variable which track the no of kidneys.
     for (let i = 0; i < johnKidneys.length; i++) {
         if (johnKidneys[i].healthy) {
             numberOfHealthyKidneys++;
