@@ -9,12 +9,12 @@
 
 const express = require('express');
 const app=express();
-
+//it's already given in the question.
 let numberOfRequestForUser = {};
 setInterval(()=>{
     numberOfRequestForUser={};
 },1000)
-
+     
 app.use(function(req,res,next){
     const userId = req.headers["user-id"];//get the user-id of the person who is sending the request.
     if(numberOfRequestForUser[userId]){
