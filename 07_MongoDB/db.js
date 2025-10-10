@@ -24,7 +24,7 @@ const TodoModel = mongoose.model('todos',Todo);
 
 
 //We are exporting this varibale so that we can import it to the index.js so we can call usermodel.insert function.
-//and exporting this object functionallity to
+//and exporting this object functionallity to.
 module.exports = {
     UserModel:UserModel,
     TodoModel:TodoModel

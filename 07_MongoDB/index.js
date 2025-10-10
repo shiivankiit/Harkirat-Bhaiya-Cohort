@@ -6,16 +6,44 @@ const app = express()
 app.use(express.json())
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-mongoose.connect("mongodb+srv://username & password @cluster1.b03rg69.mongodb.net/to-doapp");
+const {z} = require("zod");
+mongoose.connect("mongodb+srv://singhsam771000_db_user:Bb6t4anAQm0URZd7@cluster1.b03rg69.mongodb.net/to-doapp");
 
 
 app.post("/signup", async function(req,res){
     //Here we are sending the request from frontend
     //email,password and name.
+    //Input validation
+
+    const requireBody = z.object({
+        email:z.string().min(3).max(100).email(),
+        name:z.string().min(3).max(100),
+        password:z.string().min(3).max(30)
+    })
+    //const parseData = requireBody.safeParse(req.body);
+    const parseDataWithSucess = requireBody.safeParse(req.body);
+    if(!parseDataWithSucess.sucess){
+        res.json({
+            message:"Incorrect format",
+            error : parseDataWithSucess.error
+        })
+    }
+
+
     const email = req.body.email;
     const password=req.body.password;
     const name=req.body.name;
 
+    if(typeof email !=="string" || email.length<5 || !email.includes("@")){
+        res.json({
+            message:"email are incorrect"
+        })
+    }
+
+    //Promisify the fs function call.
+    //try and catch block helps us catch an error.
+    let errorThrown = false;
+    try{
     const hashedPassword = await bcrypt.hash(password,5);
 
     //It is an asynchronous function call and here we can apply async and await.
@@ -25,11 +53,16 @@ app.post("/signup", async function(req,res){
         email:email,
         password:hashedPassword,
         name:name
+    })} catch(e){
+        res.json(({
+            message:"User already exist"}))
+    }
+    errorThrown=true;
+    if(!errorThrown){
+        res.json({
+        message:"You are signed up"
     })
-
-    res.json({
-        message:"You are logged in"
-    })
+    }
 
 });
 app.post("/signin", async function(req,res){
@@ -39,11 +72,17 @@ app.post("/signin", async function(req,res){
     //email and password.
     //Here we are await until the user signed in.
      const user = await UserModel.findOne({
-        email:email,
-        password:password     
+        email:email  
      })
+     if(!response){
+        res.status(403).json(({
+            message:"User not found"
+        }))
+    }
 
-    if(user){
+    const passwordMatch = await bcrypt.compare(password,response.password);
+
+    if(passwordMatch){
         const token =jwt.sign({
             id:user._id  //Here we are sending the user id in payload to uniquely identify the user.
         },JWT_SECRET);
@@ -93,3 +132,6 @@ function auth(req,res,next){
 app.listen(3000,()=>{
     console.log("Server is running on port http://localhost:3000");
 })
+
+//Input validation.
+/*It means you are sending a right value in the input box.  */
