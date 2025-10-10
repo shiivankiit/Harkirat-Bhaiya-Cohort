@@ -7,7 +7,7 @@ app.use(express.json())
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const {z} = require("zod");
-mongoose.connect("mongodb+srv://singhsam771000_db_user:Bb6t4anAQm0URZd7@cluster1.b03rg69.mongodb.net/to-doapp");
+mongoose.connect("mongodb+srv://username and password mongodb.net/to-doapp");
 
 
 app.post("/signup", async function(req,res){
